@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoveLens - Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Import Poppins font for stylish modern look */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+    /* Custom keyframe for gradient animation */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .gradient-text {
+      background: linear-gradient(90deg,#ee7752,#e73c7e,#23d5ab,#23a6d5);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Pulse glow animation for compliment box */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 15px 5px rgba(255, 117, 140, 0.45),
+          inset 0 0 10px 3px rgba(255, 192, 203, 0.4);
+      }
+      50% {
+        box-shadow:
+          0 0 22px 10px rgba(255, 117, 140, 0.65),
+          inset 0 0 18px 6px rgba(255, 192, 203, 0.6);
+      }
+    }
+    .pulse-glow {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col text-[#4b1d2f] antialiased font-poppins">
+
+  <!-- Navbar -->
+  <nav class="bg-white sticky text-center top-0 z-50 rounded-b-3xl shadow-lg justify-between items-center px-8 py-3 text-white font-extrabold text-xl select-none max-w-full">
+    <h1 class="font-extrabold text-6xl text-center gradient-text uppercase tracking-widest select-none">
+    LoveLens
+    </h1>
+  </nav>
+
+  <!-- Main content -->
+  <main class="flex-grow flex justify-center items-center p-8 sm:p-16">
+    <section aria-label="LoveLens Content" role="main" class="bg-white/15 backdrop-blur-md backdrop-saturate-150 rounded-3xl shadow-xl max-w-md w-full p-10 flex flex-col items-center gap-8">
+
+      <h3 class="font-extrabold text-2xl text-center gradient-text uppercase tracking-widest select-none">
+        Welcome to LoveLens
+        
+      </h3>
+      <h3 class="font-light text-lg text-center gradient-text select-none">Discover the perfect compliment for your loved ones by simply uploading their picture. Let LoveLens brighten their day with heartfelt, personalized words that resonate.</h3>
+      <!-- Relation selector -->
+      <div class="w-full max-w-xs">
+        <label for="relationSelect" class="block mb-2 font-semibold text-[#520026] select-none">Choose Relationship:</label>
+        <select id="relationSelect" name="relationSelect" class="w-full p-3 rounded-full border-2 border-pink-300 focus:border-pink-500 ring-0 focus:ring-4 focus:ring-pink-300 transition font-medium text-[#520026] cursor-pointer appearance-none bg-white shadow-sm">
+          <option value="" selected>-- Select relation --</option>
+          <option value="girlfriend">Girlfriend</option>
+          <option value="friend">Friend</option>
+          <option value="sibling">Sibling</option>
+          <option value="colleague">Colleague</option>
+          <option value="partner">Partner</option>
+          <option value="family">Family</option>
+          <option value="crush">Crush</option>
+        </select>
+      </div>
+
+      <label for="uploadImage" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2">
+        Choose an Image
+      </label>
+      <input type="file" id="uploadImage" name="uploadImage" accept="image/*" aria-describedby="uploadDesc" class="hidden" />
+
+      <div aria-label="Selected image preview" aria-live="polite" aria-atomic="true" aria-relevant="additions removals" class="relative rounded-3xl w-full max-w-[320px] aspect-square shadow-2xl overflow-hidden bg-white/30 drop-shadow-lg">
+        <img id="previewImg" alt="Selected image preview will appear here" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1179b8ad-70c3-42d5-beb7-4e3b7337eb01.png" class="w-full h-full object-cover rounded-3xl transition-transform duration-300 hover:scale-[1.04]" />
+      </div>
+
+    <!-- Compliment Portion -->
+    <div id="complimentContainer" class="relative max-w-[350px] w-full rounded-3xl bg-white p-8 shadow-[0_25px_50px_-12px_rgb(230_150_200_/0.4),0_10px_20px_-10px_rgb(230_150_200_/0.3)] text-[#610094] font-bold text-xl text-center flex items-center justify-center select-text min-h-[6rem] leading-tight transition duration-300 hover:shadow-[0_30px_60px_-15px_rgb(230_120_210_/0.6),0_15px_30px_-12px_rgb(230_120_210_/0.5)]">
+      <svg class="absolute top-5 right-6 w-9 h-9 fill-[#e44ad9] opacity-20 pointer-events-none select-none rotate-12" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35z"/></svg>
+      <div id="compliment" class="flex-1 font-bold">Please upload an image for a special compliment ❤️</div>
+    </div>
+
+      <div class="compliment-buttons mt-6 flex flex-wrap gap-5 justify-center max-w-[320px] w-full">
+        <button type="button" id="copyBtn" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2">Copy</button>
+        <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2">Share</button>
+        <!-- <button type="button" id="nextBtn"  class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Next</button> -->
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white">
+  <div class="container px-4 mx-auto">
+    <div class="pt-24 pb-11 mx-auto max-w-4xl">
+        <h1 class="font-extrabold text-6xl text-center gradient-text uppercase tracking-widest select-none">
+        LoveLens
+        </h1>
+        <h1 class="font-bold mt-[3vh]  gradient-text text-xl text-center text-pink-500 select-none">
+        Developed By Madhav
+        </h1>
+
+    </div>
+  </div>
+  <div class="border-b border-gray-100"></div>
+  <div class="container px-4 mx-auto">
+    <p class="py-10 md:pb-20 text-md text-gray-400 font-medium text-center">
+      © 2023 LOVELENS.com.
+      All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const fileInput = document.getElementById('uploadImage');
+    const previewImg = document.getElementById('previewImg');
+    const complimentDiv = document.getElementById('compliment');
+    const complimentContainer = document.getElementById('complimentContainer');
+    const navRefreshBtn = document.querySelector('nav button[title="Refresh Compliment"]');
+    const copyBtn = document.getElementById('copyBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const relationSelect = document.getElementById('relationSelect');
+
+    const complimentsByRelation = {
+      girlfriend: [
+        "Your beauty lights up every corner of this photo.",
+        "Absolutely stunning, just like you!",
+        "You shine brighter than any filter could.",
+        "A true queen, graceful and gorgeous.",
+        "Your smile here brightens my whole day.",
+      ],
+      friend: [
+        "Looking fabulous as always, my dear friend!",
+        "Your positivity shines through this picture.",
+        "Such a radiant and joyful presence!",
+        "You bring happiness wherever you go.",
+        "Friendships like this make life beautiful.",
+      ],
+      sibling: [
+        "Siblings like you are a true treasure.",
+        "Your smile is contagious and warm.",
+        "A beautiful bond captured perfectly.",
+        "So much love and joy in this photo!",
+        "Forever family, forever fabulous.",
+      ],
+      colleague: [
+        "Professional and radiant, a true role model.",
+        "Confidence and grace perfectly captured here.",
+        "Your presence lights up the workplace and beyond.",
+        "Excellence looks good on you!",
+        "A classy, inspiring individual.",
+      ],
+      partner: [
+        "My heart beats for you, every time I see you.",
+        "Together, you make every moment magical.",
+        "The epitome of beauty and love.",
+        "You complete everything around you.",
+        "Forever gorgeous, forever mine.",
+      ],
+      family: [
+        "Family love shines brighter than anything.",
+        "Such a heartwarming and lovely photo.",
+        "Love and beauty wrapped in one picture.",
+        "A precious gem of the family.",
+        "This photo tells a beautiful story of love.",
+      ],
+      crush: [
+        "Your allure is simply irresistible.",
+        "You radiate charm and confidence here.",
+        "Cannot take my eyes off this picture!",
+        "Simply breathtaking, inside and out.",
+        "Your beauty is pure inspiration.",
+      ],
+      default: [
+        "This captures your radiant charm perfectly.",
+        "Every pixel of this picture is pure magic.",
+        "The loveliest vision ever captured.",
+        "An enchanting beauty that melts hearts.",
+        "Pure elegance and warmth in every frame."
+      ]
+    };
+
+    let currentCompliment = '';
+
+    function getRandomCompliment(relation) {
+      let pool = complimentsByRelation[relation] || complimentsByRelation['default'];
+      let newCompliment;
+      do {
+        newCompliment = pool[Math.floor(Math.random() * pool.length)];
+      } while (newCompliment === currentCompliment && pool.length > 1);
+      currentCompliment = newCompliment;
+      return newCompliment;
+    }
+
+    function showCompliment() {
+      let relation = relationSelect.value || 'default';
+      complimentContainer.style.opacity = 0;
+      setTimeout(() => {
+        complimentDiv.textContent = getRandomCompliment(relation);
+        complimentContainer.style.opacity = 1;
+        triggerConfetti();
+      }, 250);
+    }
+
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) {
+        previewImg.src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fc7924f7-4446-41df-85d5-42d52c91be63.png';
+        previewImg.alt = 'Upload an image placeholder';
+        complimentDiv.textContent = 'Please upload an image for a special compliment ❤️';
+        currentCompliment = '';
+        return;
+      }
+      if (!file.type.startsWith('image/')) {
+        complimentDiv.textContent = 'Oops! Please upload a valid image file.';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewImg.src = e.target.result;
+        previewImg.alt = 'User uploaded image preview';
+        showCompliment();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Update compliment if relation changes, if image uploaded
+    relationSelect.addEventListener('change', () => {
+      if(!previewImg.src.includes('Upload+an+Image') && previewImg.src.trim() !== '') {
+        showCompliment();
+      }
+    });
+
+    navRefreshBtn.addEventListener('click', () => {
+      if (!previewImg.src.includes('Upload+an+Image')) {
+        showCompliment();
+      }
+    });
+    nextBtn.addEventListener('click', () => {
+      if (!previewImg.src.includes('Upload+an+Image')) {
+        showCompliment();
+      }
+    });
+    copyBtn.addEventListener('click', () => {
+      if (currentCompliment) {
+        navigator.clipboard.writeText(currentCompliment).then(() => {
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => {
+            copyBtn.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg> Copy`;
+          }, 2000);
+        });
+      }
+    });
+
+    shareBtn.addEventListener('click', () => {
+      if (!currentCompliment) return;
+      const shareText = encodeURIComponent(`LoveLens Compliment: "${currentCompliment}" ❤️ #LoveLensCompliment`);
+      const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
+      window.open(shareUrl, '_blank', 'width=550,height=400');
+    });
+
+    // Confetti effect (simple circle particles)
+    function triggerConfetti() {
+      const confettiCount = 40;
+      const confettiContainer = document.createElement('div');
+      confettiContainer.style.position = 'absolute';
+      confettiContainer.style.top = 0;
+      confettiContainer.style.left = 0;
+      confettiContainer.style.width = '100%';
+      confettiContainer.style.height = '100%';
+      confettiContainer.style.pointerEvents = 'none';
+      confettiContainer.style.overflow = 'visible';
+      complimentContainer.appendChild(confettiContainer);
+      let particles = [];
+
+      for(let i=0; i<confettiCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = particle.style.height = `${Math.random()*6+4}px`;
+        particle.style.background = `hsl(${Math.random()*340+260}, 80%, 65%)`;
+        particle.style.borderRadius = '50%';
+        particle.style.left = `${Math.random()*100}%`;
+        particle.style.top = '50%';
+        particle.style.opacity = 1;
+        particle.style.transform = `translateY(0)`;
+        confettiContainer.appendChild(particle);
+
+        particles.push({
+          el: particle,
+          velocityX: (Math.random()-0.5)*2,
+          velocityY: -Math.random()*7-3,
+          posX: parseFloat(particle.style.left),
+          posY: 50,
+          gravity: 0.15,
+          opacity: 1
+        });
+      }
+
+      let animationFrame;
+      function animate() {
+        particles.forEach((p, i) => {
+          p.velocityY += p.gravity;
+          p.posX += p.velocityX;
+          p.posY += p.velocityY;
+          p.opacity -= 0.02;
+          if(p.opacity <= 0) {
+            confettiContainer.removeChild(p.el);
+            particles.splice(i,1);
+            return;
+          }
+          p.el.style.left = `${p.posX}%`;
+          p.el.style.top = `${p.posY}%`;
+          p.el.style.opacity = p.opacity;
+        });
+        if(particles.length>0) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          complimentContainer.removeChild(confettiContainer);
+          cancelAnimationFrame(animationFrame);
+        }
+      }
+      animate();
+    }
+  })();
+</script>
+</body>
+</html>
+
