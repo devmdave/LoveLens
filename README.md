@@ -15,18 +15,6 @@ Theme: TokyoNight (electric cyan + indigo) with warm romantic accents.
   <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=34&duration=3200&pause=700&color=FF77A9&center=true&vCenter=true&width=920&lines=%E2%9D%A4%EF%B8%8F+LoveLens+%E2%9D%A4%EF%B8%8F;AI+companion+for+warmth+%26+connection;Built+to+understand+%E2%80%A2+care+%E2%80%A2+joy" alt="LoveLens Typing Header" />
 </p>
 
-<p align="center">
-  <!-- subtle neon divider -->
-  <img src="https://i.imgur.com/sq6D7Dk.gif" width="780" height="6" alt="neon divider"/>
-</p>
-
-<!-- ============================
-   HERO / VISUAL (Romantic Neon GIF)
-   ============================ -->
-<p align="center">
-  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="760" alt="warm neon heart animation"/>
-</p>
-
 ---
 
 ## 💖 LoveLens — At a glance
