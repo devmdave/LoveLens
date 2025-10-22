@@ -18,15 +18,12 @@ Theme: TokyoNight (electric cyan + indigo) with warm romantic accents.
 ---
 
 ## 💖 LoveLens — At a glance
-\`\`\`yaml
-name: LoveLens
-type: AI Companion
-mission: "Make digital moments feel human — send care, empathy, and warmth."
-description: >
+
+"Make digital moments feel human — send care, empathy, and warmth."
+description: 
   LoveLens is a playful AI companion that adds warmth to your loved ones' digital moments.
   From mood-aware messages to thoughtful nudges, it expresses care and connection.
-repo: https://github.com/devmdave/LoveLens
-\`\`\`
+
 
 ---
 
