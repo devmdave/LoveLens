@@ -1,4 +1,4 @@
-```markdown
+
 <!--
 ================================================================================
 💖 LoveLens — README (Graphical · TokyoNight x Romantic Neon)
@@ -182,4 +182,3 @@ jobs:
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2600&pause=700&color=FF77A9&center=true&vCenter=true&width=680&lines=Thanks+for+visiting+LoveLens+%E2%9D%A4;Bring+more+care+into+digital+life+%E2%9C%8C" alt="signoff" />
 </p>
-```
