@@ -48,29 +48,6 @@ From mood-aware messages to thoughtful nudges, it expresses care and connection.
 
 ---
 
-## 🚀 Getting Started (Quick)
-\`\`\`bash
-# clone repo
-git clone https://github.com/devmdave/LoveLens.git
-cd LoveLens
-
-# (Python v3.9+ virtualenv recommended)
-python -m venv .venv
-source .venv/bin/activate   # macOS / Linux
-# .venv\Scripts\activate    # Windows PowerShell
-
-# install
-pip install -r requirements.txt
-
-# run (example)
-export FLASK_APP=app.py
-export FLASK_ENV=development
-flask run
-# open http://127.0.0.1:5000
-\`\`\`
-
----
-
 ## 🧩 Tech Stack
 <p align="center">
   <img src="https://skillicons.dev/icons?i=python,flask,git,html,css,js,sql&theme=dark" alt="tech stack" />
