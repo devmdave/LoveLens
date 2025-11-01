@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { languages, roles, MessageFormSchema, type MessageFormValues } from '@/lib/definitions';
 import { useToast } from '@/hooks/use-toast';
 import { generateMessageAction } from '@/app/actions';
-import { Loader2, Send } from 'lucide-react';
+import { Loader2, Send, Wand2 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -43,6 +43,8 @@ export function MessageForm() {
       setResult(response);
     });
   };
+
+  const hasGeneratedMessage = !!result?.message;
 
   return (
     <div className="w-full max-w-2xl space-y-8">
@@ -120,13 +122,15 @@ export function MessageForm() {
                 />
               </div>
 
-              <Button type="submit" disabled={isPending} className="w-full">
+              <Button type="submit" disabled={isPending} className="w-full text-white font-bold animated-gradient">
                 {isPending ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : hasGeneratedMessage ? (
+                  <Wand2 className="mr-2 h-4 w-4" />
                 ) : (
                   <Send className="mr-2 h-4 w-4" />
                 )}
-                Generate Message
+                {hasGeneratedMessage ? 'Generate Another' : 'Generate Message'}
               </Button>
             </form>
           </Form>

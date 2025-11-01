@@ -21,6 +21,16 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center p-4">
         <MessageForm />
       </main>
+      <footer className="w-full py-6">
+        <div className="container flex flex-col items-center justify-center gap-2 text-center">
+          <h2 className="text-2xl font-bold font-headline text-gradient-animated">
+            LOVELENS
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Developed by Madhav Dave
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
