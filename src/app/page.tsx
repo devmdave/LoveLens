@@ -19,13 +19,13 @@ export default function Home() {
                 Welcome To LoveLens
             </h1>
             <p className="max-w-2xl mx-auto text-muted-foreground md:text-xl mb-8">
-                Role-based, multilingual compliments powered by AI magic. Turn any photo into a reason to smile.
+                Persona, multilingual compliments powered by AI magic. Turn any photo into a reason to smile.
             </p>
             <Button size="lg" className="animated-gradient text-white font-bold" asChild>
                 <Link href="#message-generator">Try it Now</Link>
             </Button>
         </section>
-        <div id="message-generator" className="w-full">
+        <div id="message-generator" className="mx-auto">
             <MessageForm />
         </div>
       </main>

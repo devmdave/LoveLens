@@ -50,8 +50,8 @@ export function MessageForm() {
     <div className="w-full max-w-2xl space-y-8">
       <Card className="w-full bg-card/60 backdrop-blur-sm border-border/30 shadow-lg">
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">Craft Your Perfect Message</CardTitle>
-          <CardDescription>Turn a cherished photo into a heartfelt message. Just upload an image, select a voice, and let the magic happen.</CardDescription>
+          <CardTitle className="font-headline text-2xl">Craft a Perfect Message</CardTitle>
+          <CardDescription>Turn a cherished photo into a heartfelt message. Just upload an image, select a persona, and let the magic happen.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -61,7 +61,6 @@ export function MessageForm() {
                 name="imageDataUri"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Image</FormLabel>
                     <FormControl>
                       <ImageUploader onChange={field.onChange} />
                     </FormControl>
