@@ -1,6 +1,4 @@
 import { MessageForm } from "@/components/message-form";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Sparkles } from "lucide-react";
 import { AboutSection } from "@/components/about-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { Features } from "@/components/features";

@@ -45,7 +45,7 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 65%;
- sermi--accent: 220 60% 65%;
+    --accent: 220 60% 65%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -106,7 +106,7 @@
   }
 
   .animated-gradient {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23d5ab, #23a6d5);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 200% 200%;
     animation: gradient-animation 4s ease infinite;
   }

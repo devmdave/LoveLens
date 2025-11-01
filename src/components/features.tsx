@@ -1,4 +1,4 @@
-import { Bot, Languages, ImageIcon, Group } from 'lucide-react';
+import { Bot, Languages, ImageIcon, Share2, Group } from 'lucide-react';
 
 const features = [
     {
@@ -17,9 +17,9 @@ const features = [
         description: "Our AI uses the photo to add a personal touch and make the message more relevant.",
     },
     {
-        icon: Bot,
-        title: "AI-Powered Creativity",
-        description: "Leverage the power of Gemini to generate creative and heartfelt messages instantly.",
+        icon: Share2,
+        title: "Share as a PNG",
+        description: "Easily share your beautifully crafted compliments as a stylish image on any platform.",
     }
 ]
 
@@ -36,33 +36,18 @@ export function Features() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-                    <div className="grid gap-6">
-                        {features.slice(0, 2).map(feature => (
-                             <div key={feature.title} className="flex items-start gap-4 p-4 rounded-lg hover:bg-card transition-all group">
-                                <div className="p-2 bg-primary/10 rounded-full group-hover:scale-110 transition-transform">
-                                    <feature.icon className="w-6 h-6 text-primary" />
+                <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-16 mt-12">
+                    {features.map(feature => (
+                         <div key={feature.title} className="grid gap-1 text-center">
+                            <div className="flex justify-center">
+                                <div className="flex items-center justify-center rounded-full bg-primary/10 p-4 mb-4 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
+                                    <feature.icon className="w-8 h-8 text-primary" />
                                 </div>
-                                <div>
-                                    <h3 className="text-lg font-bold">{feature.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                                 </div>
                             </div>
-                        ))}
-                    </div>
-                    <div className="grid gap-6">
-                        {features.slice(2, 4).map(feature => (
-                             <div key={feature.title} className="flex items-start gap-4 p-4 rounded-lg hover:bg-card transition-all group">
-                                <div className="p-2 bg-primary/10 rounded-full group-hover:scale-110 transition-transform">
-                                    <feature.icon className="w-6 h-6 text-primary" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold">{feature.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            <h3 className="text-lg font-bold">{feature.title}</h3>
+                            <p className="text-sm text-muted-foreground">{feature.description}</p>
+                         </div>
+                    ))}
                 </div>
             </div>
         </section>

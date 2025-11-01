@@ -61,9 +61,9 @@ export function Testimonials() {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <Card className='bg-card/60'>
+                  <Card className='bg-card/60 h-full'>
                     <CardHeader className="flex flex-row items-center gap-4 pb-2">
                        <Avatar>
                          <AvatarImage src={testimonial.avatarImage} data-ai-hint={testimonial.avatarHint} alt={`Avatar for ${testimonial.role}`} />
