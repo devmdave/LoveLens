@@ -9,7 +9,7 @@ export default function Home() {
         <div className="container h-14 flex items-center">
           <div className="mr-4 flex items-center">
             <Sparkles className="h-6 w-6 mr-2 text-primary" />
-            <h1 className="text-xl font-bold font-headline">
+            <h1 className="text-xl font-bold font-headline text-gradient-animated">
               LoveLens
             </h1>
           </div>
