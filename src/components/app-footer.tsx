@@ -19,10 +19,10 @@ export function AppFooter() {
     return (
         <footer className="w-full py-8 bg-background/50">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col max-md:flex-row justify-between items-center gap-6">
+                <div className="flex flex-col justify-between items-center gap-6">
                     <div className="text-center max-md:text-left">
                         <Link href="/" className="inline-block">
-                             <h2 className="text-2xl font-bold font-headline text-gradient-animated">
+                             <h2 className="text-4xl tracking-wider font-bold font-headline text-gradient-animated">
                                 LoveLens
                             </h2>
                         </Link>
@@ -53,6 +53,11 @@ export function AppFooter() {
                      <div className="text-center max-md:text-right">
                         <p className="text-sm text-muted-foreground">
                             Made with ❤️ by Madhav Dave
+                        </p>
+                    </div>
+                    <div className="text-center max-md:text-right">
+                        <p className="text-sm text-muted-foreground">
+                            &copy; 2025 LoveLens. All rights reserved.
                         </p>
                     </div>
                 </div>
