@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -15,24 +16,43 @@ const navLinks = [
 ]
 
 const LoveLensLogo = () => (
-    <div className="relative w-7 h-7">
-        <svg
-            className="absolute inset-0 w-full h-full"
-            viewBox="0 0 24 24"
-            fill="url(#icon-gradient)"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M12 2.69l.56 1.82 1.82.56-1.82.56-.56 1.82-.56-1.82-1.82-.56 1.82-.56.56-1.82zM21 12l-1.82.56-1.82-.56 1.82-.56.56-1.82.56 1.82 1.82.56-1.82.56zM4.93 4.93l1.41-1.41L4.93 2.11 3.52 3.52l1.41 1.41zM12 21.31l-.56-1.82-1.82-.56 1.82-.56.56-1.82.56 1.82 1.82.56-1.82.56zM3.52 20.48l1.41-1.41L6.34 20.48l-1.41 1.41-1.41-1.41zM19.07 19.07l-1.41 1.41L19.07 21.9l1.41-1.41-1.41-1.41zM3 12l1.82-.56L3 10.88l-1.82.56.56 1.82.56-1.82zM20.48 3.52l-1.41 1.41L17.66 3.52l1.41-1.41 1.41 1.41z" />
-        </svg>
-         <svg width="0" height="0" className="absolute">
-            <defs>
-            <linearGradient id="icon-gradient" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="hsl(var(--primary))" />
-                <stop offset="100%" stopColor="hsl(var(--accent))" />
-            </linearGradient>
-            </defs>
-        </svg>
-    </div>
+  <div className="relative w-8 h-8">
+    <svg
+      className="absolute inset-0 w-full h-full"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" />
+          <stop offset="100%" stopColor="hsl(var(--accent))" />
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+      </defs>
+      
+      {/* Sparkle */}
+      <path 
+        d="M85 15 L88 22 L95 25 L88 28 L85 35 L82 28 L75 25 L82 22 Z"
+        fill="url(#logo-gradient)" 
+        transform="rotate(15 85 25)"
+        style={{ filter: 'url(#glow)', opacity: 0.8 }}
+      />
+      
+      {/* Heart/Lens Shape */}
+      <path
+        d="M50 87.3C27.5 70.9 15 56.2 15 40C15 26.2 26.2 15 40 15C48.3 15 56.1 19.3 60.8 25.8C59.7 26.3 58.6 26.9 57.5 27.5C53.8 22.5 47.4 19 40 19C28.4 19 19 28.4 19 40C19 54.3 30.2 67.3 50 83.2C69.8 67.3 81 54.3 81 40C81 33.4 77.9 27.6 72.8 23.9C74.6 21.6 76.8 19.8 79.2 18.5C82.8 20.8 85 25.4 85 30.6C85 32.6 84.6 34.6 83.9 36.4C83.8 36.7 83.7 37 83.6 37.3L85 40C85 56.2 72.5 70.9 50 87.3Z"
+        fill="url(#logo-gradient)"
+      />
+       {/* Inner circle of the lens */}
+      <circle cx="50" cy="40" r="16" fill="transparent" stroke="url(#logo-gradient)" strokeWidth="2.5" opacity="0.7"/>
+    </svg>
+  </div>
 );
 
 
