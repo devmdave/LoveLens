@@ -31,18 +31,18 @@ const generateMessagePrompt = ai.definePrompt({
   name: 'generateMessagePrompt',
   input: {schema: MessageInputSchema},
   output: {schema: MessageOutputSchema},
-  prompt: `You are a helpful AI assistant that generates messages based on an image, a specified role, and a language.
+  prompt: `
+    You are acting as a {{role}}.
+    Look at the image provided and speak directly to the person in the image.
+    Give them ONE short compliment (1–2 sentences, 10–25 words).
+    The compliment should feel warm, natural, and authentic to the {{role}}'s voice.
+    Output the compliment ONLY in {{language}}.
+    Do not explain or add extra text — only output the compliment itself.
 
-  The user will provide an image, a role, and a language. Your task is to generate a single message that is relevant to the image, appropriate for the role, and written in the specified language.
+    Here are the details:
+    - Image: {{media url=imageDataUri}}
 
-  Here are the details:
-  - Image: {{media url=imageDataUri}}
-  - Role: {{role}}
-  - Language: {{language}}
-
-  Generate a message that incorporates information from the image into the message, based on the role and language, if relevant. The model should act as a tool to decide when, if, or how to incorporate information from the image into the message. Return only the message. Do not include any extraneous information.
-
-  Message:`,
+    Message:`,
 });
 
 const generateImageBasedMessageFlow = ai.defineFlow(
