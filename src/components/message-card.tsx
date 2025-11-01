@@ -4,11 +4,11 @@ import { Sparkles } from './sparkles';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
-interface ComplimentCardProps {
-  compliment: string;
+interface MessageCardProps {
+  message: string;
 }
 
-export function ComplimentCard({ compliment }: ComplimentCardProps) {
+export function MessageCard({ message }: MessageCardProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function ComplimentCard({ compliment }: ComplimentCardProps) {
         <div className="relative z-10 p-6 bg-background/80 backdrop-blur-lg rounded-md speech-bubble">
           <CardContent className="p-0">
             <p className="text-lg md:text-xl font-headline text-center text-foreground/90">
-              {compliment}
+              {message}
             </p>
           </CardContent>
         </div>

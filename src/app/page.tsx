@@ -1,4 +1,4 @@
-import { ComplimentForm } from "@/components/compliment-form";
+import { MessageForm } from "@/components/message-form";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Sparkles } from "lucide-react";
 
@@ -10,7 +10,7 @@ export default function Home() {
           <div className="mr-4 flex items-center">
             <Sparkles className="h-6 w-6 mr-2 text-primary" />
             <h1 className="text-xl font-bold font-headline">
-              Complimentor
+              LoveLens
             </h1>
           </div>
           <div className="flex flex-1 items-center justify-end">
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1 flex flex-col items-center justify-center p-4">
-        <ComplimentForm />
+        <MessageForm />
       </main>
     </div>
   );

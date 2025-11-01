@@ -3,25 +3,25 @@
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { languages, roles, ComplimentFormSchema, type ComplimentFormValues } from '@/lib/definitions';
+import { languages, roles, MessageFormSchema, type MessageFormValues } from '@/lib/definitions';
 import { useToast } from '@/hooks/use-toast';
-import { generateComplimentAction } from '@/app/actions';
+import { generateMessageAction } from '@/app/actions';
 import { Loader2, Send } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { ImageUploader } from './image-uploader';
-import { ComplimentCard } from './compliment-card';
+import { MessageCard } from './message-card';
 import { cn } from '@/lib/utils';
 
-export function ComplimentForm() {
+export function MessageForm() {
   const [isPending, startTransition] = useTransition();
-  const [result, setResult] = useState<{ compliment?: string; error?: string } | null>(null);
+  const [result, setResult] = useState<{ message?: string; error?: string } | null>(null);
   const { toast } = useToast();
 
-  const form = useForm<ComplimentFormValues>({
-    resolver: zodResolver(ComplimentFormSchema),
+  const form = useForm<MessageFormValues>({
+    resolver: zodResolver(MessageFormSchema),
     defaultValues: {
       imageDataUri: '',
       role: undefined,
@@ -29,10 +29,10 @@ export function ComplimentForm() {
     },
   });
 
-  const onSubmit = (values: ComplimentFormValues) => {
+  const onSubmit = (values: MessageFormValues) => {
     setResult(null);
     startTransition(async () => {
-      const response = await generateComplimentAction(values);
+      const response = await generateMessageAction(values);
       if (response.error) {
         toast({
           variant: 'destructive',
@@ -48,8 +48,8 @@ export function ComplimentForm() {
     <div className="w-full max-w-2xl space-y-8">
       <Card className="w-full bg-card/60 backdrop-blur-sm border-border/30 shadow-lg">
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">Create a Compliment</CardTitle>
-          <CardDescription>Upload an image and select a persona to generate a unique compliment.</CardDescription>
+          <CardTitle className="font-headline text-2xl">Create a Message</CardTitle>
+          <CardDescription>Upload an image and select a persona to generate a unique message.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -126,15 +126,15 @@ export function ComplimentForm() {
                 ) : (
                   <Send className="mr-2 h-4 w-4" />
                 )}
-                Generate Compliment
+                Generate Message
               </Button>
             </form>
           </Form>
         </CardContent>
       </Card>
 
-      <div className={cn("transition-opacity duration-500", result?.compliment ? "opacity-100" : "opacity-0")}>
-        {result?.compliment && <ComplimentCard compliment={result.compliment} />}
+      <div className={cn("transition-opacity duration-500", result?.message ? "opacity-100" : "opacity-0")}>
+        {result?.message && <MessageCard message={result.message} />}
       </div>
     </div>
   );

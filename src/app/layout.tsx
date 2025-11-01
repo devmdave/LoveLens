@@ -5,8 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Complimentor ✨',
-  description: 'Generate beautiful compliments for any occasion.',
+  title: 'LoveLens ✨',
+  description: 'Generate beautiful messages for any occasion.',
 };
 
 export default function RootLayout({
