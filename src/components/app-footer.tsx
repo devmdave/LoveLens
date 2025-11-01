@@ -25,7 +25,7 @@ export function AppFooter() {
                         LOVELENS
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                        Making kindness universal.
+                        Let Us Brighten your day with words
                     </p>
                 </div>
                 <div className="grid grid-cols-2 md:col-span-2 gap-8">
