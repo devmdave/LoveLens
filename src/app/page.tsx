@@ -32,7 +32,15 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="flex-1 flex flex-col items-center justify-center p-4">
+      <main className="flex-1 flex flex-col items-center justify-center p-4 text-center">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline text-gradient-animated mb-4">
+            Welcome to LoveLens
+          </h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground md:text-lg">
+            Discover the perfect compliment for your loved ones by simply uploading their picture. Let LoveLens brighten their day with heartfelt, personalized words that resonate.
+          </p>
+        </div>
         <MessageForm />
       </main>
       <footer className="w-full py-6">
