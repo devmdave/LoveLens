@@ -18,9 +18,13 @@ export function MessageCard({ message }: MessageCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isProcessing, startProcessing] = useTransition();
   const { toast } = useToast();
+  const [cardBgColor, setCardBgColor] = useState('transparent');
 
   useEffect(() => {
     setIsMounted(true);
+    // In a useEffect to ensure window is available
+    const bodyBg = getComputedStyle(document.body).backgroundColor;
+    setCardBgColor(bodyBg);
   }, []);
 
   const handleCopyToClipboard = () => {
@@ -34,9 +38,13 @@ export function MessageCard({ message }: MessageCardProps) {
 
       try {
         const canvas = await html2canvas(cardRef.current, {
-          backgroundColor: null, // Transparent background
+          backgroundColor: cardBgColor, // Use the determined background color
           useCORS: true,
           logging: false,
+          // Explicitly set width and height to avoid cropping
+          width: cardRef.current.offsetWidth,
+          height: cardRef.current.offsetHeight,
+          scale: 2, // Increase resolution for better quality
         });
         const dataUrl = canvas.toDataURL('image/png');
         const blob = await (await fetch(dataUrl)).blob();
@@ -53,7 +61,9 @@ export function MessageCard({ message }: MessageCardProps) {
           const link = document.createElement('a');
           link.href = dataUrl;
           link.download = 'lovelens-message.png';
+          document.body.appendChild(link);
           link.click();
+          document.body.removeChild(link);
         }
       } catch (error) {
         console.error('Sharing failed:', error);
@@ -142,10 +152,13 @@ export function MessageCard({ message }: MessageCardProps) {
           width: 0;
           height: 0;
           border: 20px solid transparent;
-          border-top-color: hsla(var(--background-h), var(--background-s), var(--background-l), 0.8);
+          border-top-color: hsla(var(--background), 0.8);
           border-bottom: 0;
           margin-left: -20px;
           margin-bottom: -20px;
+        }
+        .dark .speech-bubble:after {
+          border-top-color: hsla(var(--background), 0.8);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -154,22 +167,7 @@ export function MessageCard({ message }: MessageCardProps) {
         .animate-fade-in-slow {
             animation: fadeIn 1.5s ease-out 0.5s both;
         }
-        .dark .speech-bubble:after {
-            border-top-color: hsla(var(--background-h-dark), var(--background-s-dark), var(--background-l-dark), 0.8);
-        }
       `}</style>
-       <style jsx global>{`
-        :root {
-            --background-h: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[0]};
-            --background-s: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[1]};
-            --background-l: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[2]};
-        }
-        .dark {
-            --background-h-dark: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[0]};
-            --background-s-dark: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[1]};
-            --background-l-dark: ${getComputedStyle(document.documentElement).getPropertyValue('--background').split(' ')[2]};
-        }
-       `}</style>
     </div>
   );
 }
