@@ -1,3 +1,4 @@
+
 import { MessageForm } from "@/components/message-form";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Sparkles } from "lucide-react";
@@ -8,7 +9,20 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container h-14 flex items-center">
           <div className="mr-4 flex items-center">
-            <Sparkles className="h-6 w-6 mr-2 text-primary" />
+            <svg width="0" height="0" className="absolute">
+              <defs>
+                <linearGradient id="icon-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#ee7752" />
+                  <stop offset="33%" stopColor="#e73c7e" />
+                  <stop offset="66%" stopColor="#23d5ab" />
+                  <stop offset="100%" stopColor="#23a6d5" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <Sparkles
+              className="h-6 w-6 mr-2"
+              style={{ stroke: "url(#icon-gradient)" }}
+            />
             <h1 className="text-xl font-bold font-headline text-gradient-animated">
               LoveLens
             </h1>
