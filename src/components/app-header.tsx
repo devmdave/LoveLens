@@ -60,17 +60,17 @@ export function AppHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container h-14 flex items-center">
-        <div className="mr-4 flex items-center">
+      <div className="container justify-center text-center h-14 flex items-center">
+        <div className="w-[30vw] mr-4 flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <LoveLensLogo />
-            <h1 className="text-xl font-bold font-headline text-gradient-animated">
+            <h1 className="text-2xl font-bold font-headline text-gradient-animated">
               LoveLens
             </h1>
           </Link>
         </div>
         
-        <nav className="hidden md:flex flex-1 items-center justify-center space-x-6 text-sm font-medium">
+        <nav className="w-[40vw] hidden md:flex flex-1 text-ce items-center justify-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
                 <Link key={link.href} href={link.href} className="text-muted-foreground transition-colors hover:text-foreground">
                     {link.label}
@@ -78,7 +78,7 @@ export function AppHeader() {
             ))}
         </nav>
 
-        <div className="flex flex-1 items-center justify-end">
+        <div className="w-[30vw] flex flex-1 items-center justify-end">
           <div className="hidden md:block">
             <ThemeToggle />
           </div>
