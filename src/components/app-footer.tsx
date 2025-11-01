@@ -17,32 +17,27 @@ const footerLinks = [
 
 export function AppFooter() {
     return (
-        <footer className="w-full py-8 bg-background/50 border-t">
-          <div className="container">
-            <div className="grid md:grid-cols-3 gap-8">
-                <div className="space-y-2">
-                    <h2 className="text-2xl font-bold font-headline text-gradient-animated">
-                        LOVELENS
-                    </h2>
-                    <p className="text-sm text-muted-foreground">
-                        Let Us Brighten your day with words
-                    </p>
-                </div>
-                <div className="grid grid-cols-2 md:col-span-2 gap-8">
-                    <div>
-                        <h3 className="font-semibold mb-2">Navigation</h3>
-                        <ul className="space-y-2">
+        <footer className="w-full py-8 bg-background/50">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="text-center md:text-left">
+                        <Link href="/" className="inline-block">
+                             <h2 className="text-2xl font-bold font-headline text-gradient-animated">
+                                LoveLens
+                            </h2>
+                        </Link>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-4">
+                        <nav className="flex gap-4 md:gap-6">
                             {footerLinks.map(link => (
-                                <li key={link.href}>
+                                <li key={link.href} className="list-none">
                                     <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                                         {link.label}
                                     </Link>
                                 </li>
                             ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold mb-2">Connect with us</h3>
+                        </nav>
                         <div className="flex space-x-2">
                             {socialLinks.map(link => (
                                 <Button key={link.label} variant="ghost" size="icon" asChild>
@@ -54,14 +49,20 @@ export function AppFooter() {
                             ))}
                         </div>
                     </div>
+
+                     <div className="text-center md:text-right">
+                        <p className="text-sm text-muted-foreground">
+                            Made with ❤️ by Madhav Dave
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
+                    <p>
+                        <span className="inline-block animate-subtle-sparkle">✨</span> Generated with kindness · Powered by LoveLens
+                    </p>
                 </div>
             </div>
-            <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-              <p>
-                Developed by Madhav Dave
-              </p>
-            </div>
-          </div>
         </footer>
     );
 }
