@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "./ui/button";
 import { useState } from "react";
@@ -16,14 +16,19 @@ const navLinks = [
 
 const LoveLensLogo = () => (
     <div className="relative w-7 h-7">
-        <Sparkles className="absolute inset-0 w-full h-full text-gradient-animated" fill="url(#icon-gradient)" />
+        <svg
+            className="absolute inset-0 w-full h-full"
+            viewBox="0 0 24 24"
+            fill="url(#icon-gradient)"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="M12 2.69l.56 1.82 1.82.56-1.82.56-.56 1.82-.56-1.82-1.82-.56 1.82-.56.56-1.82zM21 12l-1.82.56-1.82-.56 1.82-.56.56-1.82.56 1.82 1.82.56-1.82.56zM4.93 4.93l1.41-1.41L4.93 2.11 3.52 3.52l1.41 1.41zM12 21.31l-.56-1.82-1.82-.56 1.82-.56.56-1.82.56 1.82 1.82.56-1.82.56zM3.52 20.48l1.41-1.41L6.34 20.48l-1.41 1.41-1.41-1.41zM19.07 19.07l-1.41 1.41L19.07 21.9l1.41-1.41-1.41-1.41zM3 12l1.82-.56L3 10.88l-1.82.56.56 1.82.56-1.82zM20.48 3.52l-1.41 1.41L17.66 3.52l1.41-1.41 1.41 1.41z" />
+        </svg>
          <svg width="0" height="0" className="absolute">
             <defs>
             <linearGradient id="icon-gradient" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#ee7752" />
-                <stop offset="33%" stopColor="#e73c7e" />
-                <stop offset="66%" stopColor="#23d5ab" />
-                <stop offset="100%" stopColor="#23a6d5" />
+                <stop offset="0%" stopColor="hsl(var(--primary))" />
+                <stop offset="100%" stopColor="hsl(var(--accent))" />
             </linearGradient>
             </defs>
         </svg>
