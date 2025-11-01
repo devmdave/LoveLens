@@ -1,5 +1,4 @@
 // A Genkit flow that generates a message based on an image, role, and language.
-
 'use server';
 
 import {ai} from '@/ai/genkit';
@@ -32,13 +31,16 @@ const generateMessagePrompt = ai.definePrompt({
   input: {schema: MessageInputSchema},
   output: {schema: MessageOutputSchema},
   prompt: `
+    You are LoveLens ✨ — a magical compliment generator. 
     You are acting as a {{role}}.
     Look at the image provided and speak directly to the person in the image.
     Give them ONE short compliment (1–2 sentences, 10–25 words).
     The compliment should feel warm, natural, and authentic to the {{role}}'s voice.
     Output the compliment ONLY in {{language}}.
-    Do not explain or add extra text — only output the compliment itself.
-
+    Guidelines:
+    -Do not explain or add extra text — only output the compliment itself.
+    -Focus on one strong quality.
+    -You can add subtle imagery or metaphor for magic.
     Here are the details:
     - Image: {{media url=imageDataUri}}
 
