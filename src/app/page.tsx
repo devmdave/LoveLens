@@ -16,7 +16,7 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center p-4 text-center">
         <section id="hero" className="flex flex-col items-center justify-center my-12 pt-16 md:pt-24">
             <h1 className="text-4xl md:text-6xl font-bold font-headline text-gradient-animated mb-4">
-                Complimentor ✨
+                Welcome To LoveLens
             </h1>
             <p className="max-w-2xl mx-auto text-muted-foreground md:text-xl mb-8">
                 Role-based, multilingual compliments powered by AI magic. Turn any photo into a reason to smile.
