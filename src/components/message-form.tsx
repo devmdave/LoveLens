@@ -106,7 +106,7 @@ export function MessageForm() {
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a language..." />
-                          </SelectTrigger>
+                          </Trigger>
                         </FormControl>
                         <SelectContent>
                           {languages.map((lang) => (
